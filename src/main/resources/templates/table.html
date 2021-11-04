@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>email</th>
+        <th>operation
+        <th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user,stat:${page.records}">
+        <td th:text="${stat.count}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+        <td>[[${user.email}]]</td>
+        <td>
+            <a th:href="@{/user/delete/{id}(id=${user.id},pn=${page.current})}" style="color: crimson" type="button">delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    当前第[[${page.current}]]页，总计 [[${page.pages}]]页 共 [[${page.total}]]条记录
+</div>
+
+<div>
+    <p th:style="${num==page.current?'color:green':''}" th:each="num:${#numbers.sequence(1,page.pages)}">
+        <a th:href="@{/table(pn=${num})}">[[${num}]]</a>
+    </p>
+</div>
+</body>
+</html>

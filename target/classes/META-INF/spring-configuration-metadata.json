@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "color",
+      "type": "com.example.demo.model.Color",
+      "sourceType": "com.example.demo.model.Color"
+    }
+  ],
+  "properties": [
+    {
+      "name": "color.id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.demo.model.Color"
+    },
+    {
+      "name": "color.name",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo.model.Color"
+    }
+  ],
+  "hints": []
+}
